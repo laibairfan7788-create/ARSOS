@@ -1,0 +1,356 @@
+/* ============================================
+   ARSOS Trading - Global Styles
+   ============================================ */
+
+:root {
+  --arsos-navy: #0B2545;
+  --arsos-navy-dark: #061831;
+  --arsos-navy-light: #163B6B;
+  --arsos-gold: #C9A961;
+  --arsos-gold-light: #E0C889;
+  --arsos-gold-dark: #A8863F;
+  --arsos-gray: #F5F7FA;
+  --arsos-gray-dark: #E2E8F0;
+  --arsos-text: #2D3748;
+  --arsos-text-light: #64748B;
+  --arsos-white: #FFFFFF;
+  --arsos-shadow-sm: 0 2px 8px rgba(11, 37, 69, 0.08);
+  --arsos-shadow: 0 10px 30px rgba(11, 37, 69, 0.10);
+  --arsos-shadow-lg: 0 20px 60px rgba(11, 37, 69, 0.15);
+  --arsos-transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  color: var(--arsos-text);
+  background: var(--arsos-white);
+  line-height: 1.7;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  color: var(--arsos-navy);
+  line-height: 1.25;
+}
+
+a {
+  text-decoration: none;
+  transition: var(--arsos-transition);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ============================================
+   Scrollbar
+   ============================================ */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--arsos-gray);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--arsos-navy);
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--arsos-gold);
+}
+
+/* ============================================
+   Utility Classes
+   ============================================ */
+.text-gold { color: var(--arsos-gold) !important; }
+.bg-navy { background: var(--arsos-navy) !important; }
+.bg-gray { background: var(--arsos-gray) !important; }
+
+.section-padding {
+  padding: 100px 0;
+}
+
+@media (max-width: 768px) {
+  .section-padding {
+    padding: 60px 0;
+  }
+}
+
+/* ============================================
+   Animations
+   ============================================ */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+@keyframes pulseGold {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(201, 169, 97, 0.5); }
+  50% { box-shadow: 0 0 0 20px rgba(201, 169, 97, 0); }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-60px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal-left.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(60px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal-right.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-zoom {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal-zoom.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ============================================
+   Buttons
+   ============================================ */
+.btn-arsos {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 34px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  border-radius: 4px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: var(--arsos-transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-arsos-primary {
+  background: var(--arsos-gold);
+  color: var(--arsos-navy);
+  border-color: var(--arsos-gold);
+}
+.btn-arsos-primary:hover {
+  background: transparent;
+  color: var(--arsos-gold);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(201, 169, 97, 0.35);
+}
+
+.btn-arsos-outline {
+  background: transparent;
+  color: var(--arsos-white);
+  border-color: var(--arsos-white);
+}
+.btn-arsos-outline:hover {
+  background: var(--arsos-white);
+  color: var(--arsos-navy);
+  transform: translateY(-3px);
+}
+
+.btn-arsos-navy {
+  background: var(--arsos-navy);
+  color: var(--arsos-white);
+  border-color: var(--arsos-navy);
+}
+.btn-arsos-navy:hover {
+  background: var(--arsos-gold);
+  color: var(--arsos-navy);
+  border-color: var(--arsos-gold);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(201, 169, 97, 0.35);
+}
+
+/* ============================================
+   Page Banner
+   ============================================ */
+.page-banner {
+  position: relative;
+  min-height: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--arsos-navy-dark) 0%, var(--arsos-navy) 50%, var(--arsos-navy-light) 100%);
+  overflow: hidden;
+  padding: 120px 0 80px;
+}
+
+.page-banner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle at 20% 30%, rgba(201, 169, 97, 0.15) 0%, transparent 50%),
+                    radial-gradient(circle at 80% 70%, rgba(201, 169, 97, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.page-banner-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: var(--arsos-white);
+  animation: fadeInUp 0.8s ease both;
+}
+
+.page-banner-content h1 {
+  color: var(--arsos-white);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  margin-bottom: 15px;
+}
+
+.page-banner-content .breadcrumb-text {
+  color: var(--arsos-gold);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+}
+
+/* ============================================
+   Section Titles
+   ============================================ */
+.section-title-wrap {
+  text-align: center;
+  max-width: 750px;
+  margin: 0 auto 60px;
+}
+
+.section-subtitle {
+  display: inline-block;
+  color: var(--arsos-gold);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  position: relative;
+  padding-left: 50px;
+}
+
+.section-subtitle::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 35px;
+  height: 2px;
+  background: var(--arsos-gold);
+  transform: translateY(-50%);
+}
+
+.section-title {
+  font-size: clamp(1.6rem, 3.2vw, 2.5rem);
+  font-weight: 800;
+  color: var(--arsos-navy);
+  margin-bottom: 20px;
+  line-height: 1.25;
+}
+
+.section-description {
+  color: var(--arsos-text-light);
+  font-size: 1.02rem;
+  line-height: 1.8;
+}
+
+/* ============================================
+   Card Hover
+   ============================================ */
+.hover-lift {
+  transition: var(--arsos-transition);
+}
+.hover-lift:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--arsos-shadow-lg);
+}
